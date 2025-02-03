@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Task {  
+export interface Task {
   id: number;
   title: string;
   description: string;
@@ -14,19 +14,19 @@ interface TaskState {
 const initialState: TaskState = {
   tasks: [],
 };
-
+// TODO:  to highlight for reminder or help coworker to unerstand code
 const taskSlice = createSlice({
-  name: 'tasks',
+  name: "tasks",
   initialState,
   reducers: {
     addTask(state, action: PayloadAction<Task>) {
       state.tasks.push(action.payload);
     },
     removeTask(state, action: PayloadAction<number>) {
-      state.tasks = state.tasks.filter(task => task.id !== action.payload);
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
     toggleTaskStatus(state, action: PayloadAction<number>) {
-      const task = state.tasks.find(task => task.id === action.payload);
+      const task = state.tasks.find((task) => task.id === action.payload);
       if (task) {
         task.completed = !task.completed;
       }
@@ -37,6 +37,7 @@ const taskSlice = createSlice({
   },
 });
 
-export const { addTask, removeTask, toggleTaskStatus, setTasks } = taskSlice.actions;
+export const { addTask, removeTask, toggleTaskStatus, setTasks } =
+  taskSlice.actions;
 
 export default taskSlice.reducer;
