@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1 className="title">Task Manager</h1>
+      <h1 className="title">Task Manager By Suyashaa</h1>
       <AddTaskForm />
       <TaskFilter setFilter={setFilter} currentFilter={filter} />
       <TaskList tasks={filteredTasks} /> 
